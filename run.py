@@ -33,7 +33,9 @@ def validate_data(value):
 
 def get_age_data():
     """
-    Get age
+    Get age from user.
+    Executes a while loop to gather a valid string of data through the terminal.
+    Must be numbers in the string.
     """
     while True:
         print("Enter age here")
@@ -50,4 +52,16 @@ def get_age_data():
 
     
 
-get_age_data()
+age_data = [get_age_data()]
+
+
+def update_woorksheet(data):
+    """
+    Update customer_input sheet with user input.
+    """
+    customer_input = SHEET.worksheet('customer_input')
+    customer_input.append_row(data)
+    print("Updated!")
+
+
+update_woorksheet(age_data)
